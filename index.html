@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Fun Interactive Website</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #87CEEB;
+            padding: 30px;
+            transition: 0.5s;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            width: 700px;
+            margin: auto;
+            box-shadow: 0px 0px 15px gray;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        input {
+            padding: 10px;
+            width: 70%;
+            font-size: 16px;
+        }
+
+        hr {
+            margin: 30px 0;
+        }
+
+        #counter {
+            color: red;
+            font-size: 40px;
+        }
+
+        .dark {
+            background: #111;
+            color: white;
+        }
+
+        .dark .container {
+            background: #222;
+            color: white;
+        }
+
+        #message,
+        #result {
+            font-size: 20px;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎉 Fun Interactive Website</h1>
+
+    <button onclick="toggleMode()">🌙 Dark Mode</button>
+
+    <hr>
+
+    <h2>Counter</h2>
+
+    <p id="counter">0</p>
+
+    <button onclick="increaseCounter()">Increase</button>
+
+    <hr>
+
+    <h2>Change Background Color</h2>
+
+    <button onclick="changeColor()">Change Color</button>
+
+    <hr>
+
+    <h2>Say Hello</h2>
+
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <br><br>
+
+    <button onclick="greetUser()">Submit</button>
+
+    <p id="message"></p>
+
+    <hr>
+
+    <h2>🎮 Click Challenge</h2>
+
+    <button onclick="increaseScore()">Click Fast!</button>
+
+    <p>Score: <span id="score">0</span></p>
+
+    <hr>
+
+    <h2>🎲 Guess The Number (1-10)</h2>
+
+    <input type="number" id="guess">
+
+    <button onclick="guessNumber()">Guess</button>
+
+    <p id="result"></p>
+
+    <hr>
+
+    <h2>❤️ Like Button</h2>
+
+    <button onclick="likeWebsite()">Like</button>
+
+    <p id="likes">Likes: 0</p>
+
+</div>
+
+<script>
+
+let count = 0;
+
+function increaseCounter() {
+    count++;
+    document.getElementById("counter").innerText = count;
+}
+
+function changeColor() {
+
+    let colors = [
+        "#ffb6c1",
+        "#98fb98",
+        "#87ceeb",
+        "#ffd700",
+        "#dda0dd",
+        "#ffa07a"
+    ];
+
+    let randomColor =
+        colors[Math.floor(Math.random() * colors.length)];
+
+    document.body.style.backgroundColor = randomColor;
+}
+
+function greetUser() {
+
+    let name =
+        document.getElementById("name").value;
+
+    if(name === "") {
+
+        document.getElementById("message").innerHTML =
+            "⚠️ Enter your name";
+
+    } else {
+
+        document.getElementById("message").innerHTML =
+            "👋 Hello " + name + "! Welcome to my website.";
+    }
+}
+
+let score = 0;
+
+function increaseScore() {
+    score++;
+    document.getElementById("score").innerText = score;
+}
+
+let secretNumber =
+    Math.floor(Math.random() * 10) + 1;
+
+function guessNumber() {
+
+    let guess =
+        Number(document.getElementById("guess").value);
+
+    if(guess === secretNumber) {
+
+        document.getElementById("result").innerHTML =
+            "🎉 Correct Guess!";
+
+        secretNumber =
+            Math.floor(Math.random() * 10) + 1;
+
+    } else {
+
+        document.getElementById("result").innerHTML =
+            "❌ Wrong! Try Again.";
+    }
+}
+
+let likes = 0;
+
+function likeWebsite() {
+
+    likes++;
+
+    document.getElementById("likes").innerHTML =
+        "Likes: " + likes;
+}
+
+function toggleMode() {
+    document.body.classList.toggle("dark");
+}
+
+</script>
+
+</body>
+</html>
