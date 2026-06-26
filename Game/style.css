@@ -1,0 +1,156 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#1f4037,#99f2c8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    width:700px;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+h1{
+    margin-bottom:20px;
+    color:#222;
+}
+
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+#board{
+    width:468px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(9,52px);
+    grid-template-rows:repeat(9,52px);
+    gap:0;
+}
+
+.cell{
+    width:52px;
+    height:52px;
+    text-align:center;
+    font-size:24px;
+    border:1px solid #888;
+    outline:none;
+    transition:.2s;
+}
+
+.cell:focus{
+    background:#d9f7ff;
+}
+
+.fixed{
+    background:#ececec;
+    font-weight:bold;
+    color:#000;
+}
+
+.buttons{
+    margin-top:25px;
+}
+
+button{
+    margin:8px;
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    background:#0077ff;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    background:#005ad6;
+}
+
+#message{
+    margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+    color:green;
+}
+
+.dark{
+    background:#111;
+}
+
+.dark .container{
+    background:#1f1f1f;
+    color:white;
+}
+
+.dark h1{
+    color:white;
+}
+
+.dark .cell{
+    background:#333;
+    color:white;
+}
+
+.dark .fixed{
+    background:#555;
+}
+
+.cell:nth-child(3n){
+    border-right:3px solid black;
+}
+
+.cell:nth-child(9n){
+    border-right:1px solid black;
+}
+
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54){
+    border-bottom:3px solid black;
+}
+
+@media(max-width:768px){
+
+.container{
+    width:95%;
+}
+
+#board{
+    width:360px;
+    grid-template-columns:repeat(9,40px);
+    grid-template-rows:repeat(9,40px);
+}
+
+.cell{
+    width:40px;
+    height:40px;
+    font-size:18px;
+}
+
+.top-bar{
+    flex-direction:column;
+    gap:10px;
+}
+
+button{
+    width:90%;
+}
+}

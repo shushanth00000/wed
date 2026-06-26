@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Master</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🧩 Sudoku Master</h1>
+
+        <div class="top-bar">
+
+            <div class="timer">
+                ⏱️ Time:
+                <span id="time">00:00</span>
+            </div>
+
+            <div class="mistakes">
+                ❤️ Mistakes:
+                <span id="mistakes">0</span>/3
+            </div>
+
+        </div>
+
+        <div id="board"></div>
+
+        <div class="buttons">
+
+            <button onclick="newGame()">🎮 New Game</button>
+
+            <button onclick="checkBoard()">✅ Check</button>
+
+            <button onclick="giveHint()">💡 Hint</button>
+
+            <button onclick="resetBoard()">🔄 Reset</button>
+
+            <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+        </div>
+
+        <div id="message"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
